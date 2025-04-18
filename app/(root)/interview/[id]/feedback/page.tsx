@@ -54,10 +54,11 @@ const page = async ({params}: RouteParams) => {
     </div>
 
     <hr />
-
+    <br />
     <p>
       {feedback?.finalAssessment}
     </p>
+    <br />
 
     <div className='flex flex-col gap-4'>
       <h2>Breakdown of the Interview:</h2>
@@ -70,6 +71,7 @@ const page = async ({params}: RouteParams) => {
         </div>
       ))}
     </div>
+    <br />
     
     <div className='flex flex-col gap-3'>
       <h3>Strengths</h3>
@@ -79,8 +81,9 @@ const page = async ({params}: RouteParams) => {
         ))}
       </ul>
     </div>
+    <br />
       
-    <div className='flex flex-col gap-3'>
+    <div className='flex flex-col gap-3 '>
       <h3>Areas for Improvement</h3>
       <ul>
         {feedback?.areasForImprovement?.map((area, index) => (
@@ -88,6 +91,7 @@ const page = async ({params}: RouteParams) => {
         ))}
       </ul>
     </div>
+    <br />
 
         <div className='buttons'>
           <Button className='btn-secondary flex-1'>
