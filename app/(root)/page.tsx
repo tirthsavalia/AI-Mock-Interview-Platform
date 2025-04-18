@@ -9,16 +9,18 @@ import { getInterviewsByUserId, getLatestInterviews } from '@/lib/actions/genera
 
 const page =async () => {
   const user = await getCurrentUser();
+  const userId = user?.id;
+  if (!userId) return null;
 
   const [userInterviews, latestInterviews] = await Promise.all([
-    await getInterviewsByUserId(user?.id!),
-    await getLatestInterviews({userId: user?.id!})
+    getInterviewsByUserId(userId),
+    getLatestInterviews({userId})
   ])
 
 
 
-  const hasPastInterviews = userInterviews?.length > 0;
-  const hasUpcomingInterviews = latestInterviews?.length > 0;
+  const hasPastInterviews = (userInterviews ?? []).length > 0;
+  const hasUpcomingInterviews = (latestInterviews ?? []).length > 0;
 
   return (
     <>

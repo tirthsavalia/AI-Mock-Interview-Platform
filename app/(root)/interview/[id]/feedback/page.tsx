@@ -10,11 +10,12 @@ import React from 'react'
 const page = async ({params}: RouteParams) => {
   const {id} = await params;
   const user = await getCurrentUser();
+  if (!user?.id) redirect('/');
 
   const interview = await getInterviewById(id);
   if(!interview) redirect('/');
 
-  const feedback = await getFeedbackByInterviewId({interviewId: id , userId: user?.id!})
+  const feedback = await getFeedbackByInterviewId({interviewId: id, userId: user.id})
 
   console.log(feedback)
 
