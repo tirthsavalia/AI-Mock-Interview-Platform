@@ -1,9 +1,7 @@
 'use server';
 
 import { db, auth } from "@/firebase/admin";
-import { error } from "console";
 import { cookies } from "next/headers";
-import { FirebaseError } from "firebase-admin";
 
 const ONE_WEEK = 60*60*24*7
 
